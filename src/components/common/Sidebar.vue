@@ -33,15 +33,15 @@
 export default {
   data() {
     return {
-      callapse: false,
+      collapse: false,
       items: [
         {
-          icon: 'el-icon-home',
+          icon: 'el-icon-lx-home',
           index: 'dashboard',
           title: '系统首页'
         },
         {
-          icon: 'el-icon-cascades',
+          icon: 'el-icon-lx-cascades',
           index: 'table',
           title: '基础表格'
         },
@@ -122,6 +122,11 @@ export default {
       ]
     }
   },
+  computed: {
+    onRoutes() {
+      return this.$route.path.replace('/', '');
+    }
+  }
 
 }
 </script>
