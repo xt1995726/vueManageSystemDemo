@@ -42,6 +42,7 @@
   </div>
 </template>
 <script>
+import bus from '../common/bus';
 export default {
   data() {
     return {
@@ -66,7 +67,10 @@ export default {
       }
     },
     // 侧边栏折叠
-    collapseChange() { },
+    collapseChange() {
+      this.collapse = !this.collapse;
+      bus.$emit('collapse', this.collapse);
+    },
     // 全屏
     handleFullScreen() {
       let element = document.documentElement;
