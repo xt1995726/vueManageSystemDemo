@@ -44,3 +44,34 @@ a {
 .content-collapse {
   left: 65px;
 }
+
+.container {
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.crumbs {
+  margin: 10px 0;
+}
+
+/* BaseForm */
+
+.form-box {
+  width: 600px;
+}
+
+.form-box .line {
+  text-align: center;
+}
+
+.el-time-panel__content::after,
+.el-time-panel__content::before {
+  margin-top: -7px;
+}
+
+.el-time-spinner__wrapper
+  .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
+  padding-bottom: 0;
+}
