@@ -8,6 +8,7 @@ import BaseTable from "@/components/page/BaseTable";
 Vue.use(Router);
 
 export default new Router({
+  base: '/dist/',
   routes: [
     {
       path: "/",
