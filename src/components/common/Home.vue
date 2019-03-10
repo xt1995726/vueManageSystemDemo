@@ -32,6 +32,9 @@ export default {
     bus.$on('collapse', msg => {
       this.collapse = msg;
     })
-  }
+  },
+  // mounted() {
+  //   window.vue = this;
+  // }
 }
 </script>

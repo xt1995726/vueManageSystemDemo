@@ -66,7 +66,7 @@ export default {
   name: 'basetable',
   data() {
     return {
-      url: './vuetable.json',
+      url: '/ms/table/list',
       tableData: [],
       cur_page: 1,
       multipleSelection: [],
@@ -109,9 +109,9 @@ export default {
     // 获取easy-mock 的数据
     getData() {
       // 正式环境用 json 文件，开发环境用easy-mock
-      if (process.env.NODE_ENV == 'development') {
-        this.url = '/ms/table/list';
-      }
+      // if (process.env.NODE_ENV == 'development') {
+      //   this.url = '/ms/table/list';
+      // }
       this.$axios.post(this.url, {
         page: this.cur_page
       }).then((res) => {
