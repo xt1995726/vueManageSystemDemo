@@ -16,7 +16,9 @@
         <!-- 消息中心 -->
         <div class="btn-bell">
           <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" palcement="bottom">
-            <i class="el-icon-bell"></i>
+            <router-link to="/tabs">
+              <i class="el-icon-bell"></i>
+            </router-link>
           </el-tooltip>
           <span class="btn-bell-badge" v-if="message"></span>
         </div>
@@ -101,7 +103,7 @@ export default {
   },
   mounted() {
     if (document.body.clientWidth < 1500) {
-      this.collapse = false;
+      this.collapseChange();
     }
   }
 }
