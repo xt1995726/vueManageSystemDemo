@@ -19,26 +19,31 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home,
+      meta: { title: "自述文件" },
       children: [
         {
           path: "/dashboard",
           name: "Dashboard",
-          component: Dashboard
+          component: Dashboard,
+          meta: { title: "系统首页" }
         },
         {
           path: "/form",
           name: "BaseForm",
-          component: BaseForm
+          component: BaseForm,
+          meta: { title: "基本表单" }
         },
         {
           path: "/tabs",
           name: "Tabs",
-          component: Tabs
+          component: Tabs,
+          meta: { title: "tab选项卡" }
         },
         {
           path: "/table",
           name: "BaseTable",
-          component: BaseTable
+          component: BaseTable,
+          meta: { title: "基础表格" }
         }
       ]
     }

@@ -3,9 +3,10 @@
     <v-head></v-head>
     <v-sidebar></v-sidebar>
     <div class="content-box" :class="{'content-collapse':collapse}">
+      <v-tags></v-tags>
       <div class="content">
         <transition name="move" mode="out-in">
-          <keep-alive>
+          <keep-alive :include="tagsList">
             <router-view></router-view>
           </keep-alive>
         </transition>
@@ -17,21 +18,33 @@
 <script>
 import vHead from './Header.vue'
 import vSidebar from './Sidebar.vue'
+import vTags from './Tags.vue'
 import bus from './bus'
 export default {
   data() {
     return {
       collapse: false,
+      tagsList: [],
     }
   },
   components: {
     vHead,
     vSidebar,
+    vTags
   },
   created() {
     bus.$on('collapse', msg => {
       this.collapse = msg;
     })
+
+    bus.$on('tags', msg => {
+      let arr = [];
+      for (let i = 0; i < msg.length; i++) {
+        msg[i].name && arr.push(msg[i].name);
+      }
+      this.tagsList = arr;
+    });
+
   },
   // mounted() {
   //   window.vue = this;
