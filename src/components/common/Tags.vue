@@ -8,6 +8,17 @@
         <span class="tags-li-icon" @click="closeTags(index)"><i class="el-icon-close"></i></span>
       </li>
     </ul>
+    <div class="tags-close-box">
+      <el-dropdown @command='handleTags'>
+        <el-button size="mini" type="primary">
+          标签选项<i class="el-icon-arrow-down el-icon--right"></i>
+        </el-button>
+        <el-dropdown-menu size="small" slot="dropdown">
+          <el-dropdown-item command="other">关闭其他</el-dropdown-item>
+          <el-dropdown-item command="all">关闭所有</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 <script>
@@ -27,6 +38,10 @@ export default {
     isActive(path) {
       return path === this.$route.fullPath;
     },
+    // dropmenu 跳转方法
+    handleTags(command) {
+      command === 'other' ? this.closeOther() : this.closeAll();
+    },
     // 设置标签
     setTags(route) {
       const isExist = this.tagsList.some(item => {
@@ -43,6 +58,28 @@ export default {
         })
       }
       bus.$emit('tags', this.tagsList);
+    },
+    // 关闭单个标签
+    closeTags(index) {
+      const delItem = this.tagsList.splice(index, 1)[0];
+      const item = this.tagsList[index] ? this.tagsList[index] : this.tagsList[index - 1];
+      if (item) {
+        delItem.path === this.$route.fullPath && this.$router.push(item.path);
+      } else {
+        this.$router.push('/');
+      }
+    },
+    // 关闭其他标签
+    closeOther() {
+      const curItem = this.tagsList.filter(item => {
+        return item.path === this.$route.fullPath;
+      });
+      this.tagsList = curItem;
+    },
+    // 关闭所有标签
+    closeAll() {
+      this.tagsList = [];
+      this.$router.push('/');
     }
   },
   created() {
@@ -61,6 +98,8 @@ export default {
   height: 30px;
   overflow: hidden;
   background-color: #fff;
+  padding-right: 120px;
+  box-shadow: 0 5px 10px #ddd;
 }
 .tags ul {
   box-sizing: border-box;
@@ -77,7 +116,7 @@ export default {
   line-height: 23px;
   border: 1px solid #e9eaec;
   cursor: pointer;
-  background-color: #fff;
+  background: #fff;
   padding: 0 5px 0 12px;
   vertical-align: middle;
   color: #666;
@@ -91,6 +130,7 @@ export default {
 .tags-li.active {
   color: #fff;
   background-color: #409eff;
+  border: 1px solid #409eff;
 }
 .tags-li-title {
   float: left;
@@ -103,5 +143,18 @@ export default {
 }
 .tags-li.active .tags-li-title {
   color: #fff;
+}
+.tags-close-box {
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding-top: 1px;
+  text-align: center;
+  width: 110px;
+  height: 30px;
+  background-color: #fff;
+  box-shadow: -3px 0 15px 3px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 </style>
