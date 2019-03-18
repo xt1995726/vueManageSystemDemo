@@ -1,5 +1,5 @@
 <template>
-  <div class="tags" v-if="1">
+  <div class="tags" v-if="showTags">
     <ul>
       <li class="tags-li" v-for="(item, index) in tagsList" :key="index" :class="{'active': isActive(item.path)}">
         <router-link :to="item.path" class="tags-li-title">
@@ -119,7 +119,7 @@ export default {
   background: #fff;
   padding: 0 5px 0 12px;
   vertical-align: middle;
-  color: #666;
+  color: #0f6fd6;
   transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
@@ -128,9 +128,9 @@ export default {
   background: #f8f8f8;
 }
 .tags-li.active {
-  color: #fff;
-  background-color: #409eff;
-  border: 1px solid #409eff;
+  color: #0f6fd6;
+  background-color: #eaf5ff;
+  border: 1px solid #b6dcff;
 }
 .tags-li-title {
   float: left;
@@ -142,7 +142,7 @@ export default {
   color: #666;
 }
 .tags-li.active .tags-li-title {
-  color: #fff;
+  color: #0f6fd6;
 }
 .tags-close-box {
   position: absolute;
