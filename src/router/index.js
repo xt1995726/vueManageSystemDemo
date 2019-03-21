@@ -5,7 +5,8 @@ import BaseForm from "@/components/page/BaseForm";
 import Tabs from "@/components/page/Tabs";
 import BaseTable from "@/components/page/BaseTable";
 import Dashboard from "@/components/page/Dashboard";
-import DragList from "@/components/page/DragList"
+import DragList from "@/components/page/DragList";
+import Upload from "@/components/page/Upload";
 
 Vue.use(Router);
 
@@ -51,6 +52,12 @@ export default new Router({
           name: "DragList",
           component: DragList,
           meta: { title: "拖拽列表" }
+        },
+        {
+          path: "/upload",
+          name: "Upload",
+          component: Upload,
+          meta: { title: "文件上传" }
         }
       ]
     }
