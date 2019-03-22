@@ -7,6 +7,7 @@ import BaseTable from "@/components/page/BaseTable";
 import Dashboard from "@/components/page/Dashboard";
 import DragList from "@/components/page/DragList";
 import Upload from "@/components/page/Upload";
+import Login from "@/components/page/Login";
 
 Vue.use(Router);
 
@@ -60,6 +61,10 @@ export default new Router({
           meta: { title: "文件上传" }
         }
       ]
+    },
+    {
+      path: "/login",
+      component: Login
     }
   ]
 });
