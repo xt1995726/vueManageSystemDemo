@@ -114,7 +114,6 @@ export default {
   },
   computed: {
     role() {
-      localStorage.setItem('ms_username', 'xietian');
       return this.name === 'xietian' ? '超级管理员' : '普通用户';
     }
   }
