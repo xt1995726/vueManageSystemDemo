@@ -8,6 +8,7 @@ import Dashboard from "@/components/page/Dashboard";
 import DragList from "@/components/page/DragList";
 import Upload from "@/components/page/Upload";
 import Login from "@/components/page/Login";
+import Icon from "@/components/page/Icon";
 
 Vue.use(Router);
 
@@ -59,6 +60,12 @@ export default new Router({
           name: "Upload",
           component: Upload,
           meta: { title: "文件上传" }
+        },
+        {
+          path: "/icon",
+          name: "Icon",
+          component: Icon,
+          meta: { title: "自定义图标" }
         }
       ]
     },
