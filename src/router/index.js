@@ -9,6 +9,8 @@ import DragList from "@/components/page/DragList";
 import Upload from "@/components/page/Upload";
 import Login from "@/components/page/Login";
 import Icon from "@/components/page/Icon";
+import Error from "@/components/page/404";
+import BaseCharts from "@/components/page/BaseCharts";
 
 Vue.use(Router);
 
@@ -66,6 +68,18 @@ export default new Router({
           name: "Icon",
           component: Icon,
           meta: { title: "自定义图标" }
+        },
+        {
+          path: "/404",
+          name: "Error",
+          component: Error,
+          meta: { title: "404" }
+        },
+        {
+          path: "/charts",
+          name: "BaseCharts",
+          component: BaseCharts,
+          meta: { title: "chart图表" }
         }
       ]
     },
